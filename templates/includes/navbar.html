@@ -26,9 +26,9 @@
           <li><a class="nav-link scrollto" href="/Myprofile">My profile</a></li> 
           <li class="dropdown"><a href="#"><span>SignIn</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">SignUp</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Log out</a></li>
+              <li><a href="{% url 'signup' %}">SignUp</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
           </li>
         <li><a class="nav-link scrollto bg-danger p-2 m-2" href="#">Cart</a></li>
