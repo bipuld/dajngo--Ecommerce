@@ -1,10 +1,45 @@
-{% extends 'base.html' %}
+{% extends 'base\baseauth.html' %}
+
+{% load widget_tweaks %}
 
 {% block title %}
 Register
 {% endblock title %}
+{% comment %} main  form here {% endcomment %}
+{% block main-form %}
+    <div class="card bg-light p-5">
 
-{% block body %}
+<h4 class="text-dark">Signup</h4>
 
-<p> Welcome to  Register page </P>
-{% endblock body %}
+<form action="#" method="POST" class="my-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">{{form.username.label}}</label>
+        {{form.username|add_class:"form-control"}}
+    </div>
+    <div class="form-group">
+        <label for="email">{{form.email.label}}</label>
+        {{form.email|add_class:"form-control"}}
+    </div>
+    <div class="form-group">
+        <label for="pass1">Password</label>
+        {{form.password1|add_class:"form-control"}}
+    </div>
+    <div class="form-group">
+        <label for="pass2">Confirm Password</label>
+        {{form.password2|add_class:"form-control"}}
+    </div>
+</br>
+    <button class="btn btn-dark p-2" type="submit">SignUp</button>
+    <br>
+    <p class="text-center mt-2 mb-2">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</form>
+
+
+</div>
+{% endblock main-form %}
+
+{% block bodyform %}
+
+{% comment %} <p> Welcome to  Register page </P> {% endcomment %}
+{% endblock bodyform %}
