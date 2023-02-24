@@ -6,7 +6,46 @@ Login
 
 {% comment %} main  form here {% endcomment %}
 {% block main-form %}
+{% comment %} messages stuff {% endcomment %}
+{% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong> </strong>{{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}    
+
+{% endif %}
+
+
+
+
+<div class="card bg-light p-5">
+
+    <h4 class="text-dark">Login</h4>
     
+    <form action="#" method="POST" class="my-form">
+        {% csrf_token %}
+        <br>
+        
+        <label for="email">Email</label>
+        <div class="form-group">
+            <input type="email" class="form-control" id="email" name="email" required autofocus>
+        </div>
+
+
+        <label for="password1">Password</label>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password1" required>
+        </div>
+    </br>
+        <button class="btn btn-dark p-2" type="submit">Login</button>
+        <br>
+        <p class="text-center mt-2 mb-2">Not register yet? <a href="{% url 'signup' %}">Signup</a></p>
+    </form>
+    
+</div> 
 {% endblock main-form %}
 {% comment %} body part {% endcomment %}
 {% block bodyform %}

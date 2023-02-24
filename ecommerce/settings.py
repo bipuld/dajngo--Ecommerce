@@ -1,5 +1,5 @@
 from pathlib import Path,os
-
+from django.contrib import messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecommerceapp',
     'userapp',
-    'widget_tweaks'
+    'widget_tweaks',
+    'six',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -114,11 +116,33 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#   for messages tags
+MESSAGES_TAGS ={
+    messages.error:'danger',
+    messages.warning:'warning',
+    messages.success:'sucess'
+    
+}
+
+
+
+# for sending email purpose
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bida_csit2077@lict.edu.np' #as using sennding email id in backend settings
+EMAIL_HOST_PASSWORD = '9800775184@ppas' #passwords in backend settings
+
+
+# for media root in django
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
+MEDIA_URL = '/media/'
