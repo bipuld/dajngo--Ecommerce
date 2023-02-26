@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'six',
     'ckeditor',
+    'humanize'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,10 @@ EMAIL_HOST_PASSWORD = '9800775184@ppas' #passwords in backend settings
 # for media root in django
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
 MEDIA_URL = '/media/'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    # add additional directories here if needed
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'

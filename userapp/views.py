@@ -96,7 +96,23 @@ def login(request):
         username=request.POST['email']
         userpassword=request.POST['password1']
         myuser=authenticate(username=username,password=userpassword)
+        # this is recaptcha form that you are not robiot till 
+        # recaptcha_response=request.POST['g-recaptcha-response']      
+        # if not recaptcha_response:
+        #     messages.error(request,'Please Verify that your not a robot . ')
+        #     return redirect(request,'login.html')
+        # data={
+        #     'secret':'',
+        #     'response':recaptcha_response
+        # }
+        # response=request.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        # result=response.json()
+        # if not result['success']:
+        #     messages.error(request,'reCAPTCHA verification failed.')
+        #     return redirect(request,'login.html')
         
+        
+        # here recaptcha final lone
         if myuser is not None:
             auth_login(request,myuser)
             messages.success(request,'Sucessfully logged in')

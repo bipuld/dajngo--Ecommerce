@@ -22,30 +22,45 @@ Login
 
 
 <div class="card bg-light p-5">
-
     <h4 class="text-dark">Login</h4>
-    
+    {% comment %} <div class="g-recaptcha" data-sitekey="#"></div> {% endcomment %}
     <form action="#" method="POST" class="my-form">
         {% csrf_token %}
         <br>
-        
         <label for="email">Email</label>
         <div class="form-group">
             <input type="email" class="form-control" id="email" name="email" required autofocus>
         </div>
-
-
         <label for="password1">Password</label>
-        <div class="form-group">
-            <input type="password" class="form-control" id="password" name="password1" required>
+        <div class="form-group password-input">
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password1" required>
+                <span toggle="#password" class="eye toggle-password"></span>
+            </div>     
         </div>
-    </br>
+        
+        <br>
         <button class="btn btn-dark p-2" type="submit">Login</button>
         <br>
-        <p class="text-center mt-2 mb-2">Not register yet? <a href="{% url 'signup' %}">Signup</a></p>
+        <p class="text-center mt-2 mb-2">Not registered yet? <a href="{% url 'signup' %}">Signup</a></p>
     </form>
+    {% comment %} </div> {% endcomment %}
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.toggle-password').click(function() {
+            $(this).toggleClass('active');
+            var passwordInput = $($(this).attr('toggle'));
+            if (passwordInput.attr('type') == 'password') {
+                passwordInput.attr('type', 'text');
+            } else {
+                passwordInput.attr('type', 'password');
+            }
+        });
+    });
+    </script>
     
-</div> 
 {% endblock main-form %}
 {% comment %} body part {% endcomment %}
 {% block bodyform %}
