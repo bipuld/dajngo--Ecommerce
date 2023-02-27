@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block title %}
 Home
@@ -17,122 +18,59 @@ Home
     {% endfor %}    
 
 {% endif %}
+<style>
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+  .card-img-top {
+    height: 262px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-text {
+    font-size: 16px;
+    color: #666;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
 
-   <section id="portfolio" class="portfolio">
-    <div class="container">
 
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <h3>Check our <span>Portfolio</span></h3>
-        <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-      </div>
+<section id="portfolio" class="portfolio">
+  <div class="container">
 
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{% static 'img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 1</h4>
-            <p>App</p>
-            <a href="{% static 'img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{% static 'img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 3</h4>
-            <p>Web</p>
-            <a href="{% static 'img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{% static 'img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 2</h4>
-            <p>App</p>
-            <a href="{% static 'img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{% static 'img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 2</h4>
-            <p>Card</p>
-            <a href="{% static 'img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{% static 'img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 2</h4>
-            <p>Web</p>
-            <a href="{% static 'img/portfolio/portfolio-5.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{% static 'img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 3</h4>
-            <p>App</p>
-            <a href="{% static 'img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{% static 'img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 1</h4>
-            <p>Card</p>
-            <a href="{% static 'img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{% static 'img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 3</h4>
-            <p>Card</p>
-            <a href="{% static 'img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{% static 'img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 3</h4>
-            <p>Web</p>
-            <a href="{% static 'img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-      </div>
-
+    <div class="section-title">
+      <h2>Welcome to Shopify Store</h2>
+      <p>Discover amazing deals on a variety of products!</p>
     </div>
-  </section><!-- End Portfolio Section -->
+
+    {% for product, range, nslides in all_products %} 
+    <h3 class="my-3 text-center text-success bg-light">{{ product.0.category }} Flash Sale</h3>
+    <div class="row">
+      {% for i in product %}
+      <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+        <div class="card">
+          <img src="{{ i.product_photo.url }}" class="card-img-top" alt="not found">
+          <div class="card-body">
+            <h5 class="card-title">{{ i.product_name }}</h5>
+            <p class="card-text">{{ i.desc|safe }}..</p>
+            <h6 class="card-title">
+              Price: <span id="pricepr{{ i.id }}">{{ i.price|intcomma }} $</span>
+            </h6>
+            <div class="text-center">
+              <button id="pr{{ i.product_id }}" class="btn btn-primary btn-sm mt-2">Add to Cart</button>
+              <a href="{{ i.product_photo.url }}" class="btn btn-dark btn-sm mt-2">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
 
   {% endblock body %}

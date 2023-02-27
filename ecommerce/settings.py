@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'six',
     'ckeditor',
-    'humanize'
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

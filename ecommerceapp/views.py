@@ -1,11 +1,23 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from ecommerceapp.models import Contact
+from ecommerceapp.models import Contact,Product
 from django.contrib import messages
 from .forms import ContactForm
+from math import ceil
 def home(request):
-    return render(request, 'home.html',{'title': 'welcome to django ecommerce.com'})
-
+    # for displaying the product that was created in admin page in displaying in homepage   
+    all_products=[]
+    category_products=Product.objects.values('category','product_id')
+    categ={item['category'] for item in category_products}
+    for cat in categ:
+        products=Product.objects.filter(category=cat)
+        n=len(products)
+        nslides=n // 4 + ceil((n/4) -(n//4))
+        all_products.append([products,range(1,nslides),nslides])
+        data={
+            'all_products':all_products
+        }
+    return render(request, 'home.html',data)
 # not using forms.py iin this view i am doing by using forms.py 
 # def contact(request):
 #     if request.method == 'POST':

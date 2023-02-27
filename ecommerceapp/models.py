@@ -24,7 +24,7 @@ class Product(models.Model):
    subcategory=models.CharField(max_length=200,default="")
    price=models.IntegerField(default=0)
    desc=RichTextField()
-   product_photo=models.ImageField(upload_to="images/images") #this is product images feild which is storing ths peoduct in to the media forle making images forlder in it 
+   product_photo=models.ImageField(upload_to="product_images") #this is product images feild which is storing ths peoduct in to the media forle making images forlder in it 
    created_at=models.DateTimeField(auto_now_add=True,blank=True)
    
    def __str__(self):
