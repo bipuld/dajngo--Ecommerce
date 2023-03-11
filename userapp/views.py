@@ -57,7 +57,7 @@ def signup(request):
         except Exception as identifier:
             pass
         user = User.objects.create_user(email,email,password) #this  1st email for the username 
-        user.is_active=False
+        user.is_active=True
         user.save()
 # for encoding mechanism for token that need  send to the user mail account in email and decoding that with this class
         
