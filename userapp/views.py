@@ -57,7 +57,7 @@ def signup(request):
         except Exception as identifier:
             pass
         user = User.objects.create_user(email,email,password) #this  1st email for the username 
-        user.is_active=True
+        user.is_active=False
         user.save()
 # for encoding mechanism for token that need  send to the user mail account in email and decoding that with this class
         
@@ -70,8 +70,8 @@ def signup(request):
             'token':account_activation_token.make_token(user)
         })
         
-        email_message =EmailMessage(email_subject,email_body,settings.EMAIL_HOST_USER,[email])
-        messages.success(request,'Activate your account by clicking the link on your mail')    
+        # email_message =EmailMessage(email_subject,email_body,settings.EMAIL_HOST_USER,[email])
+        messages.success(request,f"Activate your account by clicking the link on your mail{email_body}")    
         return redirect('login')
     
     return render(request, 'signup.html') 

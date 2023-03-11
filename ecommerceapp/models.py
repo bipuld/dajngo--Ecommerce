@@ -29,5 +29,37 @@ class Product(models.Model):
    
    def __str__(self):
       return self.product_name
-
+# for order purposes only and update order
+class Order(models.Model):
+   order_id = models.AutoField(primary_key=True)
+   item_json = RichTextField()
+   amount = models.IntegerField(default=0)
+   name=models.CharField(max_length=80)
+   email=models.EmailField()
+   address1=models.CharField(max_length=200)
+   address2=models.CharField(max_length=200)
+   city=models.CharField(max_length=100)
+   state=models.CharField(max_length=100)
+   zip_code=models.CharField(max_length=100)
+   oid=models.CharField(max_length=50,blank=True)
+   amountpaid=models.CharField(max_length=500,blank=True,null=True)
+   paymentstatus=models.CharField(max_length=20,blank=True)
+   phone=models.CharField(max_length=100,default="")
+   def __str__(self):
+      return self.name
+   
+class OrderUpdate(models.Model):
+   update_id=models.AutoField(primary_key=True)
+   order_id=models.IntegerField(default="")
+   update_desc=RichTextField()
+   delivered=models.BooleanField(default=False)
+   timestamp=models.DateTimeField(auto_now_add=True)
+   
+   
+   def __str__(self):
+      return self.update_desc[0:7] + "..."   
+   
+   
+   
+   
    

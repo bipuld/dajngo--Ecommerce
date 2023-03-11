@@ -1,7 +1,7 @@
 from django.contrib import admin
 from ecommerceapp.models import Contact
 from django.utils.html import format_html
-from .models import Product
+from .models import Product,Order,OrderUpdate
 # Register your models here.
 class ContactAdmin(admin.ModelAdmin):
     list_display=['sno', 'name', 'email', 'phonenumber']
@@ -26,3 +26,5 @@ class ProductForm(admin.ModelAdmin):
     
 
 admin.site.register(Product,ProductForm)
+admin.site.register(Order)
+admin.site.register(OrderUpdate)
